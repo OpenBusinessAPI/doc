@@ -97,6 +97,14 @@ Authenticate requests to this API's endpoints by sending an Authorization header
 * **method** GET : (GET /obapi/v1/invoices)
 * **headers**
 
+### listing parameters
+
+* **datestart** (option), string YYYY-mm-dd to specify a date from wich you want to get the list
+* **datestop**  (option), string YYYY-mm-dd for the end period to request
+
+### result
+
+
 Result will be a list of available invoices
 
 ```json
