@@ -36,8 +36,8 @@ First you have to request for a new temporary crypt key
 Example:
 ```json
 {
-  login: "eric@obapi.org";
-  action: "preauth";
+  "login": "eric@obapi.org";
+  "action": "preauth";
 }
 ```
 
@@ -47,9 +47,9 @@ Then the server will give you a response like
 
 ```json
 {
-  message: "welcome eric@obapi.org !";
-  apiversion: "1.0";
-  key: "XXXXXXXX";
+  "message": "welcome eric@obapi.org !";
+  "apiversion": "1.0";
+  "key": "XXXXXXXX";
 }
 ```
 
@@ -66,9 +66,9 @@ Example:
 
 ```json
 {
-  login: "eric@obapi.org";
-  password: "xxxxxxxxxxxxxxxxxxxxxxxxxx";
-  action: "auth";
+  "login": "eric@obapi.org";
+  "password": "xxxxxxxxxxxxxxxxxxxxxxxxxx";
+  "action": "auth";
 }
 ```
 
@@ -78,8 +78,8 @@ Then the server will give you a response like
 
 ```json
 {
-  message: "welcome onboard eric@obapi.org !";
-  apikey: "YOUR_AUTH_KEY";
+  "message": "welcome onboard eric@obapi.org !";
+  "apikey": "YOUR_AUTH_KEY";
 }
 ```
 
@@ -101,7 +101,7 @@ Result will be a list of available invoices
 
 ```json
 {
-    message: "here is your invoices";
+    "message": "here is your invoices";
     "invoices":   
     {
         "ref": "20220424-124588",
