@@ -1,8 +1,9 @@
 ---
 Title: Authentication
+Order: 1001
 ---
 
-## authentication
+## Authentication
 
 Authentification may be done with API keys but normal humans don't care about that ... so first auth could be done with only login/passwd + one more thing (secret code send by email for example), then the API key will be generated and will be required for next requests.
 
@@ -33,7 +34,7 @@ Then the server will give you a response like
 {
   "message": "welcome eric@obapi.org !",
   "apiversion": "1.0",
-  "publickey": "XXXXXXXX",
+  "tmpkey": "XXXXXXXX",
   "validuntil": "30"
 }
 ```
@@ -41,13 +42,13 @@ Then the server will give you a response like
 * **`publickey`**: string, please use that temporary key for the next auth request
 * **`validuntil`** : peremption delay in seconds for the temporary key, then you have to ask for a new one
 
-Note: during that step the server will build a couple of private&public key, it store the private one and returns the public in "publickey" json field, then the client will use the public key to crypt the password
+Note: during that step the server will build a couple of private&public key, it store the public one and returns the private in "tmpkey" json field, then the client will use that key to crypt the password
 
 
 ### auth parameters
 
 * **login** string, example eric@obapi.org
-* **password** string (password crypted with publickey from the previous step)
+* **password** string (password crypted with the key from the previous step)
 * **action: auth**
 * **method** POST : (POST /obapi/v1/auth)
 
@@ -77,6 +78,6 @@ Save that apikey, you have to use if for all other requests
 
 ### auth with api key
 
-Now you have your api key, so please use it for all other requests with classic Beacon: requests
+Now you have your api key, so please use it for all other requests with classic `Bearer: requests`
 
 Authenticate requests to this API's endpoints by sending an Authorization header with the value "Bearer {YOUR_AUTH_KEY}".

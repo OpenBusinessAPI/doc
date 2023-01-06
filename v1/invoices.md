@@ -1,16 +1,26 @@
 ---
 Title: Invoices
+Order: 1080
 ---
 
 ## listing invoices
 
 * **method** GET : (GET /obapi/v1/invoices)
-* **headers**
+* **headers** 'Authorization' => 'Bearer ' + apikey,
 
 ### listing parameters
 
 * **datestart** (option), string YYYY-mm-dd to specify a date from wich you want to get the list
 * **datestop**  (option), string YYYY-mm-dd for the end period to request
+
+
+Example:
+```json
+{
+  "login": "eric@obapi.org",
+}
+```
+
 
 ### result
 
@@ -20,7 +30,7 @@ Result will be a list of available invoices
 ```json
 {
     "message": "here is your invoices",
-    "invoices":   
+    "items":   
     {
         "ref": "20220424-124588",
         "uuid": "0000-1111-2222-3333",
